@@ -39,12 +39,12 @@ class Janela1:
             
             a = str(input('Cadastrar pedido (y-Sim, n-Nao): '))
             
-            if a=='y':
+            if (a=='y' or a == "sim"):
                 print('----------Cadastrar pedido----------\n')
                 adicionar = 'y'
                 pedidos = PedidoControler.search_in_pedidos_all(database_name)
                 numero_pedido = len(pedidos)+1
-                while adicionar == 'y':
+                while adicionar == 'y' or adicionar == 'sim':
                     item = int(input('Numero do item: '))
                     quantidade = int(input('Quantidade: '))
                     
@@ -88,7 +88,7 @@ class Janela1:
                 for elem in lista_itens:
                     ItemControler.insert_into_itens_pedidos(database_name,elem)
                 
-            elif a=='n':
+            elif (a=='n' or a == "nao"):
                 print('Voltando ao Menu inicial')
                 time.sleep(2)
                 break
