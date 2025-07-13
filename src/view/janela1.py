@@ -27,19 +27,19 @@ class Janela1:
         return None
         """
         
-        a = 'y'
+        a = 's'
         
         menu = ItemControler.mostrar_itens_menu(database_name)
         
         print('----------Menu----------\n')
         print(f'{menu} \n')
-        while a=='y':
+        while a=='s':
             lista_itens = []
             valor_total=0
             
-            a = str(input('Cadastrar pedido (y-Sim, n-Nao): '))
+            a = str(input('Cadastrar pedido (s-Sim, n-Nao): ')).lower()
             
-            if a=='y':
+            if a=='s':
                 print('----------Cadastrar pedido----------\n')
                 adicionar = 'y'
                 pedidos = PedidoControler.search_in_pedidos_all(database_name)
@@ -92,3 +92,7 @@ class Janela1:
                 print('Voltando ao Menu inicial')
                 time.sleep(2)
                 break
+
+            else: #Está checando se a entrada escolhida é inválida.
+                print('Erro: Entrada inválida, digite "s" ou "n" para continuar.') # Mensagem de erro pro usuário.
+                a='s' #Retorna o código.
