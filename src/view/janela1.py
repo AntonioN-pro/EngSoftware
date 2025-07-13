@@ -27,24 +27,24 @@ class Janela1:
         return None
         """
         
-        a = 'y'
+        a = 's'
         
         menu = ItemControler.mostrar_itens_menu(database_name)
         
         print('----------Menu----------\n')
         print(f'{menu} \n')
-        while a=='y':
+        while a=='s':
             lista_itens = []
             valor_total=0
             
-            a = str(input('Cadastrar pedido (y-Sim, n-Nao): '))
+            a = str(input('Cadastrar pedido (s-Sim, n-Nao): ')).lower()
             
-            if a=='y':
+            if a=='s':
                 print('----------Cadastrar pedido----------\n')
-                adicionar = 'y'
+                adicionar = 's'
                 pedidos = PedidoControler.search_in_pedidos_all(database_name)
                 numero_pedido = len(pedidos)+1
-                while adicionar == 'y':
+                while adicionar == 's':
                     item = int(input('Numero do item: '))
                     quantidade = int(input('Quantidade: '))
                     
@@ -57,7 +57,7 @@ class Janela1:
                     for x in range(0,quantidade):#acrescentado o mesmo item várias vezes, de acordo com a quantidade
                         lista_itens.append((numero_pedido,item))
                     
-                    adicionar = str(input('Adicionar novo item? (y-Sim, n-Nao): '))
+                    adicionar = str(input('Adicionar novo item? (s-Sim, n-Nao): '))
                 
                 print('\n----------Finalizar pedido----------\n')
                 print(f'Numero do pedido: {numero_pedido}')
