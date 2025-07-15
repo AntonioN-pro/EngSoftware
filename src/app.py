@@ -42,7 +42,7 @@ DatabaseControler.create_table_itens_pedidos(cursor)
 #ItemControler.insert_into_item(database.name, item2)
 #ItemControler.insert_into_item(database.name, item3)
 
-
+#bla bla bla
 a = 'y'
 print('''
                 Bem-vindo ao software Pizza Mais
