@@ -40,7 +40,8 @@ class Janela1:
 
             a = str(input('Cadastrar pedido (s-Sim, n-Nao): ')).lower()
             
-            if a=='s':
+
+            if (a=='s' or a == "sim"):
 
                 print('----------Cadastrar pedido----------\n')
                 adicionar = 's'
@@ -55,8 +56,6 @@ class Janela1:
                     except ValueError:
                         print('Entrada inválida. Tente novamente.\n')
                         continue
-
-
 
                     a = ItemControler.valor_item(database_name, item)
 
@@ -106,7 +105,7 @@ class Janela1:
                 for elem in lista_itens:
                     ItemControler.insert_into_itens_pedidos(database_name,elem)
                 
-            elif a=='n':
+            elif (a=='n' or a == "nao"):
                 print('Voltando ao Menu inicial')
                 time.sleep(2)
                 break
