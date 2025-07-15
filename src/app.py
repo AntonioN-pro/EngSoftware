@@ -84,10 +84,9 @@ while a == 's':
             print("Relatório gerado com sucesso em 'Relatorio.pdf'.")
         else:
             print("Erro ao gerar o relatório.")
-
-    if opcao == '4':
+    if opcao == 4:
         Janela3.mostrar_janela3(database.name)
-    if opcao == '5':
+    if opcao == 5:
         a = 'n'
         break
 
