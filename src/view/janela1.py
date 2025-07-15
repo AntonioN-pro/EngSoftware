@@ -83,7 +83,10 @@ class Janela1:
                 else:
                     print('Valor incorreto, recomeçando')
                     break
-                endereco = str(input('Endereco:'))
+                if delivery == True:
+                    endereco = str(input('Endereco:'))
+                else:
+                    endereco = ""
                 status_aux = int(input('status: 1-preparo, 2-pronto, 3-entregue: '))
                 if status_aux == 1:
                     status = 'preparo'
