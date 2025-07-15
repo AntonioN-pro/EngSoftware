@@ -68,7 +68,7 @@ print('''
                 ---------------------------------
             ''')
 while a == 's':
-    opcao = int(input('\n1 - Cadastrar pedidos\n2 - Pesquisar pedidos\n3 - Relatório de pedidos\n4 - Inserir Itens no Menu\n5 - Encerrar\n Digite: '))
+    opcao = int(input('\n1 - Cadastrar pedidos\n2 - Pesquisar e atualizar status de pedidos\n3 - Relatório de pedidos (Vendas)\n4 - Inserir Itens no menu (Cardápio)\n5 - Encerrar o programa\n Digite: '))
     if opcao == 1:
         Janela1.mostrar_janela1(database.name)  
     if opcao == 2:
