@@ -43,7 +43,7 @@ class Janela2:
             print(f'\nPedidos \n\n{exibir_tela}')
             print(f'Faturamento R$ {faturamento}')
         
-        elif q=='3':
+        elif q==3:
             indice = int(input('Indice do pedido: '))
             resume = ItemControler.search_into_itens_pedidos_id(database_name, indice)
             quantidade_itens = len(resume)

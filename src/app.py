@@ -41,7 +41,9 @@ DatabaseControler.create_table_itens_pedidos(cursor)
 #ItemControler.insert_into_item(database.name, item2)
 #ItemControler.insert_into_item(database.name, item3)
 
+
 a = 's'
+
 print('''
                 ---------------------------------
                 Bem-vindo ao software Pizza Mais
@@ -90,4 +92,4 @@ while a == 's':
 
 exit()
 
-#manutenções em: itemControler.py, janela1.py, pedidoControler.py
+#manutenções em: itemControler.py, janela1.py, janela2.py, pedidoControler.py, pedido.py
