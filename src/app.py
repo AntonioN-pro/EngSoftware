@@ -73,4 +73,4 @@ while a == 'y':
         break
 exit()
 
-#manutenções em: itemControler.py, janela1.py, pedidoControler.py
+#manutenções em: itemControler.py, janela1.py, janela2.py, pedidoControler.py, pedido.py
