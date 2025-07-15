@@ -38,27 +38,37 @@ class Janela1:
             valor_total=0
             
             a = str(input('Cadastrar pedido (y-Sim, n-Nao): '))
-            
-            if a=='y':
+
+            if a == 'y':
                 print('----------Cadastrar pedido----------\n')
                 adicionar = 'y'
                 pedidos = PedidoControler.search_in_pedidos_all(database_name)
-                numero_pedido = len(pedidos)+1
+                numero_pedido = len(pedidos) + 1
+
                 while adicionar == 'y':
-                    item = int(input('Numero do item: '))
-                    quantidade = int(input('Quantidade: '))
-                    
-                    #calculando em tempo de execução o valor do pedido
+                    try:
+                        item = int(input('Numero do item: ').strip())
+                        quantidade = int(input('Quantidade: ').strip())
+                    except ValueError:
+                        print('Entrada inválida. Tente novamente.\n')
+                        continue
+
+
                     a = ItemControler.valor_item(database_name, item)
-                    b = a[0][0]*quantidade
+
+                    if not a or not a[0]:
+                        print(f'Item {item} não encontrado. Tente novamente.\n')
+                        continue
+
+                    b = a[0][0] * quantidade
                     print(b)
-                    valor_total+=b
-                    
-                    for x in range(0,quantidade):#acrescentado o mesmo item várias vezes, de acordo com a quantidade
-                        lista_itens.append((numero_pedido,item))
-                    
-                    adicionar = str(input('Adicionar novo item? (y-Sim, n-Nao): '))
-                
+                    valor_total += b
+
+                    for x in range(quantidade):
+                        lista_itens.append((numero_pedido, item))
+
+                    adicionar = input('Adicionar novo item? (y-Sim, n-Nao): ').strip().lower()
+
                 print('\n----------Finalizar pedido----------\n')
                 print(f'Numero do pedido: {numero_pedido}')
                 delivery = str(input('Delivery (S/N): ')).lower()
@@ -73,10 +83,13 @@ class Janela1:
                 status_aux = int(input('status: 1-preparo, 2-pronto, 3-entregue: '))
                 if status_aux == 1:
                     status = 'preparo'
-                if status_aux == 2:
+                elif status_aux == 2:
                     status = 'pronto'
-                else:
+                elif status_aux == 3:
                     status = 'entregue'
+                else:
+                    print('Status inválido. Recomeçando.')
+                    continue
  
                 print(f'Valor Final: R${valor_total}')
                 data_hoje = date.today()
