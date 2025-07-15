@@ -43,17 +43,19 @@ class Janela1:
             if a=='s':
 
                 print('----------Cadastrar pedido----------\n')
-                adicionar = 'y'
+                adicionar = 's'
                 pedidos = PedidoControler.search_in_pedidos_all(database_name)
+
                 numero_pedido = len(pedidos) + 1
 
-                while adicionar == 'y':
+                while adicionar == 's':
                     try:
                         item = int(input('Numero do item: ').strip())
                         quantidade = int(input('Quantidade: ').strip())
                     except ValueError:
                         print('Entrada inválida. Tente novamente.\n')
                         continue
+
 
 
                     a = ItemControler.valor_item(database_name, item)
@@ -64,6 +66,7 @@ class Janela1:
 
                     b = a[0][0] * quantidade
                     print(b)
+
                     valor_total += b
 
                     for x in range(quantidade):
